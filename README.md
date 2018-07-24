@@ -73,27 +73,3 @@ their own format
 * Arguments
 * Flags
 
-Arguments
----------
-```
-smh help review 
-```
-
-addCommand(ReviewCommand.class)
-    .inputOptionalParam(“”, “[command]”, null, false, “Name of the command from list”);
-    
-```
-git checkout [branchName]
-addCommand(ReviewCommand.class)
-    .inputMondatoryParam(“”, “[branchName]”, null, false, “Name of the command from list”);
-```
-
-Named arguments 
----------------
-Smh review –p [pullRequestId]
-addCommand(ReviewCommand.class)
-    .inputMondatoryParam(“”, “[branchName]”, null, false, “Name of the command from list”);
-
-Flags
------
-Smh review -a
