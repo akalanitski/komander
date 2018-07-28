@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/alexey-kolonitsky/komander.svg?branch=master)](https://travis-ci.org/alexey-kolonitsky/komander) [![Coverage Status](https://coveralls.io/repos/alexey-kolonitsky/komander/badge.svg?branch=master)](https://coveralls.io/r/alexey-kolonitsky/komander?branch=master) 
+
 Komander is a simple easy to use framework to develop command line application
 with a solution for common issues.
 
