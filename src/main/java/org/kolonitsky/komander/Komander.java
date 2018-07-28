@@ -4,24 +4,29 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 /**
- * Created by akalanitski on 07.08.2017.
+ * Komander facade class which agregate all configuration of the application
+ * commands
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com>
+ * @since 22.07.2018.
  */
 public class Komander {
 
 	private KomandCollection _commands;
 	private DependencyCollection _dependencies;
-	private KomanderFactory _factory;
 
 	public Komander(KomandCollection commands, DependencyCollection dependencies) {
 		_commands = commands;
 		_dependencies = dependencies;
-		_factory = new KomanderFactory(commands, dependencies);
 	}
 
 	public void run(String name, String[] arguments) {
-		IKomand cmd = _factory.create(name);
-		if (cmd == null) {
-			cmd = _factory.create("help");
+		IKomand cmd = null;
+		if (_commands.registered(name)) {
+			cmd = _commands.getKomandByName(name);
+		} else {
+			KomanderOut.UnknownKomand(name);
+			cmd = _commands.getKomandByName("help");
 		}
 
 		try {

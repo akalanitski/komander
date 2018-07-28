@@ -1,9 +1,11 @@
 package org.kolonitsky.komander;
 
-import com.sun.istack.internal.Nullable;
-
 /**
- * Created by akalanitski on 22.07.2018.
+ * The single class for definition of all Komander output messages. This is the
+ * best place to localize Komander.
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com>
+ * @since 22.07.2018.
  */
 public class KomanderOut {
 
@@ -39,8 +41,11 @@ public class KomanderOut {
 	public static void InputFlagDuplicated(String argument) {
 		out("WARNING: Flag `%s` mentioned twice. The second one will be ignored.", argument);
 	}
+	public static void UnknownKomand(String name) {
+		out("ERROR: Unknown command %s, please look at usage", name);
+	}
 
-	private static void out(String message, @Nullable Object... args) {
+	private static void out(String message, Object... args) {
 		System.out.println(String.format(message, args));
 	}
 }

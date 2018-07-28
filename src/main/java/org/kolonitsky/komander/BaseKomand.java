@@ -3,7 +3,10 @@ package org.kolonitsky.komander;
 import java.text.MessageFormat;
 
 /**
- * Created by akalanitski on 26.04.2018.
+ * Basic implementation of IKomand interface.
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @sice 26.04.2018
  */
 public class BaseKomand implements IKomand {
 

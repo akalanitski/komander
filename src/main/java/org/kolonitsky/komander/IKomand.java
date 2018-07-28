@@ -1,7 +1,10 @@
 package org.kolonitsky.komander;
 
 /**
- * Created by akalanitski on 26.04.2018.
+ * Komand Kommand interface.
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @since 26.04.2018
  */
 public interface IKomand {
 

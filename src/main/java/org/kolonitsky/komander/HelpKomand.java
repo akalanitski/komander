@@ -1,7 +1,12 @@
 package org.kolonitsky.komander;
 
 /**
- * Created by akalanitski on 20.04.2018.
+ * Sample command, which prints list of all registered commands. It also could
+ * print detailed ussage of the selected command, basend in it's input definition.
+ * This command available in all applications.
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @since 20.04.2018
  */
 public class HelpKomand extends BaseKomand {
 
@@ -20,7 +25,7 @@ public class HelpKomand extends BaseKomand {
 		println(result, null);
 	}
 
-	public String help() {
+	private String help() {
 		String result = _applicationTitle;
 		result += "\n  Usage: " + _applicationName + " [command] [options]";
 

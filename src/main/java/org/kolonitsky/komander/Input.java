@@ -7,7 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by akalanitski on 02.07.2018.
+ * Input class contains all definitions of the single command input parameters.
+ * Process array of program arguments and store prodessing result.
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @since 02.07.2018
  */
 public class Input {
 

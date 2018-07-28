@@ -4,7 +4,12 @@ import java.io.*;
 import java.util.Properties;
 
 /**
- * Created by akalanitski on 18.08.2017.
+ * Configuration file witch used to read/write properties between application
+ * runs. And to define properties which also will be available in the commands
+ * from IOC
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @sice 18.08.2017.
  */
 public class Configurator {
 

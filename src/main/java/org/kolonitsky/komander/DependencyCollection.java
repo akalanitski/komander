@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by akalanitski on 18.08.2017.
+ * Collection of all registered dependecies, which could be Injected to commands
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @since 18.08.2017
  */
 public class DependencyCollection {
 

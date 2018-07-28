@@ -1,7 +1,10 @@
 package org.kolonitsky.komander;
 
 /**
- * Created by akalanitski on 02.07.2018.
+ * Definitiona of input flag
+ *
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @since 02.07.2018
  */
 public class InputFlag {
 	public String key;
