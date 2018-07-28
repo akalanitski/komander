@@ -6,7 +6,7 @@ import java.util.HashMap;
 /**
  * Collection of komand classes.
  *
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
  * @since 8.08.2017
  */
 public class KomandCollection {

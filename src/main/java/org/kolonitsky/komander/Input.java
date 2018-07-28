@@ -10,7 +10,7 @@ import java.util.Map;
  * Input class contains all definitions of the single command input parameters.
  * Process array of program arguments and store prodessing result.
  *
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
  * @since 02.07.2018
  */
 public class Input {
@@ -52,10 +52,13 @@ public class Input {
 
 	/**
 	 * Add new flag definition
-	 * @param name
-	 * @param description
+	 * @param name flag name with all required prefix like "/" (for windows) or
+	 * "-" for linux systems.
+	 * @param description text to show in help command near to flag name
+	 * @throws KomanderException if method invoked twice with the same name
+	 * paramter
 	 */
-	public void addFlagDefinition(String name, String description) throws Exception {
+	public void addFlagDefinition(String name, String description) throws KomanderException {
 		if (!hasFlagDefinition(name)) {
 			InputFlag flag = new InputFlag();
 			flag.key = name;
@@ -68,8 +71,8 @@ public class Input {
 
 	/**
 	 * Check flag definition
-	 * @param name
-	 * @return
+	 * @param name flag name
+	 * @return true if flag was registered
 	 */
 	public boolean hasFlagDefinition(String name) {
 		return getFlagDefinition(name) != null;
@@ -77,8 +80,9 @@ public class Input {
 
 	/**
 	 * Find flag definition by id
-	 * @param name
-	 * @return
+	 * @param name flag name
+	 * @return InputFlag object with flag definition if flag was registered,
+	 * otherwise return null
 	 */
 	public InputFlag getFlagDefinition(String name) {
 		if (name != null && !name.isEmpty()) {
@@ -201,13 +205,17 @@ public class Input {
 		}
 	}
 
+	/**
+	 * Get processed arguments
+	 * @return one line with all arguments passed into the `parsArguments` method.
+	 */
 	public String rawInputLine() {
 		return StringUtils.join(_arguments, " ");
 	}
 
 	/**
 	 * Get komand input declaration string.
-	 * @return
+	 * @return one line definitions with parameters names and flags
 	 */
 	public String definitionString() {
 		String result = "";
@@ -232,7 +240,8 @@ public class Input {
 
 	/**
 	 * Get komand input declaration string.
-	 * @return
+	 * @return full definition aff input with description near each parameter
+	 * and flag.
 	 */
 	public String documentationString() {
 		String result = definitionString();

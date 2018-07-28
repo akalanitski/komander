@@ -5,7 +5,7 @@ package org.kolonitsky.komander;
  * print detailed ussage of the selected command, basend in it's input definition.
  * This command available in all applications.
  *
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
  * @since 20.04.2018
  */
 public class HelpKomand extends BaseKomand {

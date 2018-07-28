@@ -4,7 +4,7 @@ package org.kolonitsky.komander;
  * The single class for definition of all Komander output messages. This is the
  * best place to localize Komander.
  *
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com>
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
  * @since 22.07.2018.
  */
 public class KomanderOut {

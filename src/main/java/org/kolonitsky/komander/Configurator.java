@@ -8,8 +8,8 @@ import java.util.Properties;
  * runs. And to define properties which also will be available in the commands
  * from IOC
  *
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
- * @sice 18.08.2017.
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
+ * @since 18.08.2017.
  */
 public class Configurator {
 

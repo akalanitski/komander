@@ -3,7 +3,7 @@ package org.kolonitsky.komander;
 /**
  * Komand Kommand interface.
  *
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
  * @since 26.04.2018
  */
 public interface IKomand {

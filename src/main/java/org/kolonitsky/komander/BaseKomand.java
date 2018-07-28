@@ -5,8 +5,8 @@ import java.text.MessageFormat;
 /**
  * Basic implementation of IKomand interface.
  *
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
- * @sice 26.04.2018
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
+ * @since 26.04.2018
  */
 public class BaseKomand implements IKomand {
 

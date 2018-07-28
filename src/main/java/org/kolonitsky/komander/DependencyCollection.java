@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 /**
  * Collection of all registered dependecies, which could be Injected to commands
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmailc.com>
+ * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
  * @since 18.08.2017
  */
 public class DependencyCollection {
