@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/alexey-kolonitsky/komander.svg?branch=master)](https://travis-ci.org/alexey-kolonitsky/komander) [![Coverage Status](https://coveralls.io/repos/alexey-kolonitsky/komander/badge.svg?branch=master)](https://coveralls.io/r/alexey-kolonitsky/komander?branch=master) 
+[![Build Status](https://travis-ci.org/alexey-kolonitsky/komander.svg?branch=master)](https://travis-ci.org/alexey-kolonitsky/komander) [![codecov](https://codecov.io/gh/alexey-kolonitsky/komander/branch/master/graph/badge.svg)](https://codecov.io/gh/alexey-kolonitsky/komander) [![Javadocs](https://www.javadoc.io/badge/com.kolonitsky/komander.svg)](https://www.javadoc.io/doc/com.kolonitsky/komander) 
 
 Komander is a simple easy to use framework to develop command line application
 with a solution for common issues.
@@ -45,7 +45,7 @@ Setup
 To integrate Komander to your application just add maven dependency 
 ```       
  <dependency>
-   <groupId>org.kolonitsky</groupId>
+   <groupId>com.kolonitsky</groupId>
    <artifactId>komander</artifactId>
    <version>1.0-SNAPSHOT</version>
  </dependency>
