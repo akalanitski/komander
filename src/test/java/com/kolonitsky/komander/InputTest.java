@@ -1,9 +1,7 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by akalanitski on 22.07.2018.

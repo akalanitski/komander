@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 /**
  * Komand Kommand interface.

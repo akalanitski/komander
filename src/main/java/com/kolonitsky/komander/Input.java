@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 import org.apache.commons.lang3.StringUtils;
 

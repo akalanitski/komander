@@ -1,10 +1,10 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
+import com.kolonitsky.komander.samples.EchoDuplicateKomand;
+import com.kolonitsky.komander.samples.EchoKomand;
+import com.kolonitsky.komander.samples.InvalidKomand;
 import org.junit.Assert;
 import org.junit.Test;
-import org.kolonitsky.komander.samples.EchoDuplicateKomand;
-import org.kolonitsky.komander.samples.EchoKomand;
-import org.kolonitsky.komander.samples.InvalidKomand;
 
 /**
  * Created by akalanitski on 22.07.2018.

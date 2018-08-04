@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 import java.util.ArrayList;
 import java.util.HashMap;

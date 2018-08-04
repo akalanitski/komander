@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 /**
  * Definitiona of input flag

@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 /**
  * Sample command, which prints list of all registered commands. It also could

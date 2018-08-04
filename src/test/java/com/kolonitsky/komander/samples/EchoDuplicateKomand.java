@@ -1,14 +1,14 @@
-package org.kolonitsky.komander.samples;
+package com.kolonitsky.komander.samples;
 
-import org.kolonitsky.komander.BaseKomand;
+import com.kolonitsky.komander.BaseKomand;
 
 /**
  * Created by akalanitski on 22.07.2018.
  */
-public class InvalidKomand extends BaseKomand {
+public class EchoDuplicateKomand extends BaseKomand {
 
-	public InvalidKomand() {
-//		_name = ""; invalid command without name
+	public EchoDuplicateKomand() {
+		_name = "echo";
 		_category = "test";
 		_shortDescription = "print it's input to output";
 	}

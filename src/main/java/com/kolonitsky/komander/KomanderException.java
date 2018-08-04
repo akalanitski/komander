@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 /**
  * Created by akalanitski on 02.07.2018.

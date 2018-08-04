@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

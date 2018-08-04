@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 /**
  * The single class for definition of all Komander output messages. This is the

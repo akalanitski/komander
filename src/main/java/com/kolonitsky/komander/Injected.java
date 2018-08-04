@@ -1,4 +1,4 @@
-package org.kolonitsky.komander;
+package com.kolonitsky.komander;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
