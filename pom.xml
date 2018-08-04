@@ -159,11 +159,11 @@
     </build>
 
     <distributionManagement>
-        <!-- Repository for snapshots -->
+        <!-- Repository for snapshots
         <repository>
             <id>sonatype-nexus-snapshots</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </repository>
+        </repository>-->
         <!-- Repository for releases -->
         <repository>
             <id>nexus-releases</id>
