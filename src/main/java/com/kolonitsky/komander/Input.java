@@ -171,7 +171,6 @@ public class Input {
 
 	public void parseArguments(String[] args) throws Exception {
 		_arguments = args;
-		int parameterIndex = 0;
 		flags = new ArrayList<>();
 		parameters = new HashMap<String, String>();
 		for (int i = 0; i < _arguments.length; ) {
@@ -188,21 +187,28 @@ public class Input {
 				parameters.put(parameter.name, _arguments[i + 1]);
 				i += 2;
 			} else if (parametersDefinition.size() > 0) {
-
-				InputParameter parameter = parametersDefinition.get(parameterIndex);
-				while (parameter.prefix != null && !parameter.prefix.isEmpty() && parameterIndex < parametersDefinition.size()) {
-					parameter = parametersDefinition.get(++parameterIndex);
-				}
-				if (parameterIndex >= parametersDefinition.size()) {
+				InputParameter def = getFirstUndefinedParameter();
+				if (def == null) {
 					KomanderOut.InvalidArgument(arg, definitionString());
+					return;
 				}
+				parameters.put(def.name, arg);
 				i += 1;
-				parameters.put(parameter.name, arg);
 			} else {
 				KomanderOut.InvalidArgument(arg, definitionString());
-				i += 1;
+				return;
 			}
 		}
+	}
+
+	public InputParameter getFirstUndefinedParameter() {
+		for (InputParameter def : parametersDefinition) {
+			boolean hasPrefix = def.prefix != null && !def.prefix.isEmpty();
+			if (!hasPrefix && !hasParameter(def.name)) {
+				return def;
+			}
+		}
+		return null;
 	}
 
 	/**

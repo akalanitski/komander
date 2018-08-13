@@ -60,7 +60,29 @@ public class InputTest {
 	}
 
 	@Test
-	public void testParameterWithDefaultValue() throws Exception {
+	public void testTwoParameter() throws Exception {
+		Input in = new Input();
+		in.addParameterDefinition("firstName", null, "First name", null);
+		in.addParameterDefinition("secondName", null, "Second name", null);
+		in.parseArguments(new String[] {"Alexey", "Kolonitsky"});
+		Assert.assertEquals("Alexey", in.getParameter("firstName"));
+		Assert.assertEquals("Kolonitsky", in.getParameter("secondName"));
+	}
+
+	@Test
+	public void testTwoParameterAndOption() throws Exception {
+		Input in = new Input();
+		in.addParameterDefinition("firstName", null, "First name", null);
+		in.addParameterDefinition("secondName", null, "Second name", null);
+		in.addParameterDefinition("email", null, "User email", "--email");
+		in.parseArguments(new String[] {"Alexey", "Kolonitsky", "--email", "alexey.s.kolonitsky@gmail.com"});
+		Assert.assertEquals("Alexey", in.getParameter("firstName"));
+		Assert.assertEquals("Kolonitsky", in.getParameter("secondName"));
+		Assert.assertEquals("alexey.s.kolonitsky@gmail.com", in.getParameter("email"));
+	}
+
+	@Test
+	public void testOptionalParameter() throws Exception {
 		Input in = new Input();
 		in.addParameterDefinition("username", "Cfif", "User name", null);
 		in.parseArguments(new String[] {});
