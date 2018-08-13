@@ -2,31 +2,67 @@ package com.kolonitsky.komander;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Komander facade class which agregate all configuration of the application
  * commands
  *
+ *
  * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
- * @since 22.07.2018.
  */
 public class Komander {
 
-	private KomandCollection _commands;
-	private DependencyCollection _dependencies;
+	KomandCollection _komands;
+	DependencyCollection _dependencies;
 
-	public Komander(KomandCollection commands, DependencyCollection dependencies) {
-		_commands = commands;
-		_dependencies = dependencies;
+	public Komander() {
+		_komands = new KomandCollection();
+		_dependencies = new DependencyCollection();
+		_dependencies.addInstance("commands", _komands);
+		_komands.register(HelpKomand.class);
 	}
+
+
+	//--------------------------------------------------------------------------
+	// Wrap KomandCollection API
+	//--------------------------------------------------------------------------
+
+	public IKomand register(Class classDefinition) {
+		return _komands.register(classDefinition);
+	}
+
+
+	//--------------------------------------------------------------------------
+	// Wrap DependencyCollection API
+	//--------------------------------------------------------------------------
+
+	public void addConfigurator(Configurator configurator) {
+		_dependencies.addConfigurator(configurator);
+	}
+
+	public void addInstance(String key, Object instance) {
+		_dependencies.addInstance(key, instance);
+	}
+
+	public boolean hasDependency(String key) {
+		return _dependencies.hasDependency(key);
+	}
+
+	public DependencyDefinition getDependency(String key) {
+		return _dependencies.getDependency(key);
+	}
+
+
 
 	public void run(String name, String[] arguments) {
 		IKomand cmd = null;
-		if (_commands.registered(name)) {
-			cmd = _commands.getKomandByName(name);
+		if (_komands.registered(name)) {
+			cmd = _komands.getKomandByName(name);
 		} else {
 			KomanderOut.UnknownKomand(name);
-			cmd = _commands.getKomandByName("help");
+			cmd = _komands.getKomandByName("help");
 		}
 
 		try {
@@ -56,8 +92,8 @@ public class Komander {
 				if (!injected.config().equals(""))
 					dependencyId = injected.config();
 
-				if (_dependencies.hasDependency(dependencyId)) {
-					DependencyDefinition definition = _dependencies.getDependency(dependencyId);
+				if (hasDependency(dependencyId)) {
+					DependencyDefinition definition = getDependency(dependencyId);
 					try {
 						field.set(command, definition.instance);
 					}
@@ -72,4 +108,7 @@ public class Komander {
 
 		}
 	}
+
+
+
 }
