@@ -62,6 +62,54 @@ IKommand interface.
 commands which your will use.
 3. At least you have to redirect command line input to the `Kommander.run()` input.
 
+Configuration
+=============
+On of the advantages using Komander is a configuration from external file out of 
+the box. A lot of small command line tools used hardcoded values to speedup 
+programming process. Komander suggest extreamly easy to use confiration.
+
+  1. Define file with the properties somewhere.
+```properties
+project.id=myProject
+project.version=1.0.0
+```
+
+  2. Create instance of configurator which will load your file.
+  3. Register configurator in Komander
+  4. Inject your property to the any command
+
+```java
+import com.kolonitsky.komander.*;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // 2.
+        Configurator c = new Configurator();
+        c.readConfig("tool.properties");
+        
+        Komander k = new Komander();
+        k.addConfigurator(c);
+        k.register(Echo.class);
+        k.run("echo");
+    }
+}
+
+class Echo implements BaseKomand {
+    // 4.
+    @Injected(config="project.id")
+    public String id;
+    
+    public Echo() {
+        _name = "echo";
+    }
+    
+    public void run(){
+        System.out.print("Hello world: " + id);
+    }
+}
+```
+
+One registered configurator you can inject any property to any command you want.
 
 
 How to Extends

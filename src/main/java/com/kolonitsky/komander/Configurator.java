@@ -14,10 +14,7 @@ import java.util.Properties;
 public class Configurator {
 
 	Properties _properties = new Properties();
-	String _filename;
-
-	public Configurator(String filename) {
-		this._filename = filename;
+	public Configurator() {
 	}
 
 	public void set(String key, String value) {
@@ -40,7 +37,7 @@ public class Configurator {
 		return false;
 	}
 
-	public void readConfig() throws Exception {
+	public void readConfig(String _filename) {
 		InputStream result = null;
 		try {
 			result = new FileInputStream(_filename);
@@ -63,32 +60,5 @@ public class Configurator {
 		for (int i = 0; i < length; i++)
 			result[i] = (String) keys[i];
 		return result;
-	}
-
-	public void writeProperties() {
-		OutputStream output = null;
-
-		try {
-			output = new FileOutputStream(_filename);
-
-			// set the properties value
-			_properties.setProperty("database", "localhost");
-			_properties.setProperty("dbuser", "mkyong");
-			_properties.setProperty("dbpassword", "password");
-
-			// save properties to project root folder
-			_properties.store(output, null);
-
-		} catch (IOException io) {
-			io.printStackTrace();
-		} finally {
-			if (output != null) {
-				try {
-					output.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
 	}
 }
