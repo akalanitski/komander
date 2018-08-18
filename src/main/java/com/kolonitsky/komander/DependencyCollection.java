@@ -4,12 +4,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Collection of all registered dependecies, which could be Injected to commands
- * @author Alexey Kolonitsky &lt;alexey.s.kolonitsky@gmail.com&gt;
- * @since 18.08.2017
+ *
+ * Collection of all registered dependencies which could be used by Komander
+ * to resolve @Injected metatag. Dependency collection store two kind of
+ * dependencies. Komander doesn't create create instance of the dependency it
+ * just store referenc on it and use this reference many times.
+ *
+ * <ul>
+ *     <li>Config fields -- which could be injected by keys</li>
+ *     <li>Object -- instances of shared objects which once created, registered
+ *     in DependencyCollection and has never removed form memory. Such objects
+ *     reused in all commands</li>
+ * </ul>
+ *
+ * To use fields from config one or more configurators must be defined. See
+ * addConfigurator() method.
+ *
+ * Other dependencies resolved by their types.
  */
 public class DependencyCollection {
-
 
 	//--------------------------------------------------------------------------
 	// Configuration dependencies
@@ -95,4 +108,5 @@ public class DependencyCollection {
 		}
 		return null;
 	}
+
 }
