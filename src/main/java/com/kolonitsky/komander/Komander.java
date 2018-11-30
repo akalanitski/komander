@@ -54,8 +54,6 @@ public class Komander {
 		return _dependencies.getDependency(key);
 	}
 
-
-
 	public void run(String name, String[] arguments) {
 		IKomand cmd = null;
 		if (_komands.registered(name)) {
