@@ -189,13 +189,13 @@ public class Input {
 			} else if (parametersDefinition.size() > 0) {
 				InputParameter def = getFirstUndefinedParameter();
 				if (def == null) {
-					KomanderOut.InvalidArgument(arg, definitionString());
+					KomanderOut.InvalidArgument(args, arg, documentationString());
 					return;
 				}
 				parameters.put(def.name, arg);
 				i += 1;
 			} else {
-				KomanderOut.InvalidArgument(arg, definitionString());
+				KomanderOut.InvalidArgument(args, arg, documentationString());
 				return;
 			}
 		}
@@ -251,7 +251,7 @@ public class Input {
 	 */
 	public String documentationString() {
 		String result = definitionString();
-		result += "\nParameters:";
+		result += "\nWHERE:";
 		for (int i = 0; i < parametersDefinition.size(); i++) {
 			InputParameter parameter = parametersDefinition.get(i);
 			String strParameter = "";
@@ -263,10 +263,12 @@ public class Input {
 			result += parameter.defaultValue != null ? String.format("(default value = %s)", parameter.defaultValue) : "";
 			result += parameter.description;
 		}
-		result += "\nFlags:";
-		for (int i = 0; i < flagsDefinition.size(); i++) {
-			InputFlag flag = flagsDefinition.get(i);
-			result += String.format("\n\t%16s - %s", flag.key, flag.description);
+		if (flagsDefinition.size() > 0) {
+			result += "\nFlags:";
+			for (int i = 0; i < flagsDefinition.size(); i++) {
+				InputFlag flag = flagsDefinition.get(i);
+				result += String.format("\n\t%16s - %s", flag.key, flag.description);
+			}
 		}
 		return result;
 	}

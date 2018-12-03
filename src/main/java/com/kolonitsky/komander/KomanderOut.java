@@ -22,6 +22,9 @@ public class KomanderOut {
 	public static void DependencyNotFound(String dependencyId) {
 		out("ERROR: Dependency with id: '%s' not found", dependencyId);
 	}
+	public static void DependencyResolverNotFound(String dependencyId) {
+		out("ERROR: Dependency with id: '%s' has no instance and has not creator", dependencyId);
+	}
 	public static void KomandNameNotFound(Class classDefinition) {
 		out("ERROR: Komand '%s' doesn't have name. Please specify name of command.", classDefinition.getCanonicalName());
 	}
@@ -34,8 +37,17 @@ public class KomanderOut {
 	public static void KomandCantBeCreated(Class classDefinition) {
 		out("ERROR: Komand %s can't instantiate command ", classDefinition.getCanonicalName());
 	}
-	public static void InvalidArgument(String argument, String ussage) {
-		out("ERROR: Wrong argument %s. Ussage:\n ", argument);
+	public static void InvalidArgument(String[] arguments, String argument, String ussage) {
+		String argList = "ERROR Wrong argument: ";
+		for (int i = 0; i < arguments.length; i++) {
+			argList += ((i == 0) ? "" : " ") + arguments[i];
+		}
+		argList += "\n";
+		int index = argList.indexOf(argument);
+		for (int i = 0; i < index; i++)
+			argList += "-";
+		argList += "^";
+		out(argList);
 		out("USAGE: " + ussage);
 	}
 	public static void InputFlagDuplicated(String argument) {

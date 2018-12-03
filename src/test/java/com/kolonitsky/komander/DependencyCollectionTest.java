@@ -43,7 +43,7 @@ public class DependencyCollectionTest {
 	@Test
 	public void addInstance() throws Exception {
 		DependencyCollection c = new DependencyCollection();
-		c.addInstance("val", new ValueClass("Hello World"));
+		c.addInstance("val", new ValueClass("Hello World"), null);
 		Assert.assertTrue(c.hasDependency("val"));
 		Assert.assertFalse(c.hasDependency("invalidKey"));
 	}
@@ -51,13 +51,19 @@ public class DependencyCollectionTest {
 	@Test
 	public void getDependency() throws Exception {
 		DependencyCollection c = new DependencyCollection();
-		c.addInstance("val", new ValueClass("Hello World"));
+		c.addInstance("val", new ValueClass("Hello World"), null);
 		Assert.assertTrue(c.getDependency("val").key.equals("val"));
 	}
+
+
 
 }
 
 class ValueClass {
 	private String value = "";
 	public ValueClass(String value) { this.value = value; }
+}
+
+class ClassCreator {
+
 }

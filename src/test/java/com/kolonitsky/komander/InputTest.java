@@ -152,7 +152,7 @@ public class InputTest {
 		in.addFlagDefinition("--foo", "Sample flag");
 
 		Assert.assertEquals("<hostname> [-p <port>] -u <user> -a <auth> [--foo] \n" +
-				"Parameters:\n" +
+				"WHERE:\n" +
 				"\t      <hostname> - Hostname used to connect to database\n" +
 				"\t       -p <port> - (default value = 3300)port\n" +
 				"\t       -u <user> - Username\n" +

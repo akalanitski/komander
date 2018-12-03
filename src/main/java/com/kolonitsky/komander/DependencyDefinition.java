@@ -10,4 +10,5 @@ public class DependencyDefinition {
 	public String key;
 	public Object instance;
 	public Configurator configurator;
+	public IDependencyCreator creator;
 }

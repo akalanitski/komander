@@ -2,8 +2,6 @@ package com.kolonitsky.komander;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Komander facade class which agregate all configuration of the application
@@ -20,7 +18,7 @@ public class Komander {
 	public Komander() {
 		_komands = new KomandCollection();
 		_dependencies = new DependencyCollection();
-		_dependencies.addInstance("commands", _komands);
+		_dependencies.addInstance("commands", _komands, null);
 		_komands.register(HelpKomand.class);
 	}
 
@@ -42,8 +40,8 @@ public class Komander {
 		_dependencies.addConfigurator(configurator);
 	}
 
-	public void addInstance(String key, Object instance) {
-		_dependencies.addInstance(key, instance);
+	public void addInstance(String key, Object instance, IDependencyCreator creator) {
+		_dependencies.addInstance(key, instance, creator);
 	}
 
 	public boolean hasDependency(String key) {
@@ -92,6 +90,13 @@ public class Komander {
 
 				if (hasDependency(dependencyId)) {
 					DependencyDefinition definition = getDependency(dependencyId);
+					if (definition.instance == null) {
+						if (definition.creator == null) {
+							KomanderOut.DependencyResolverNotFound(dependencyId);
+						} else {
+							definition.instance = definition.creator.create();
+						}
+					}
 					try {
 						field.set(command, definition.instance);
 					}
