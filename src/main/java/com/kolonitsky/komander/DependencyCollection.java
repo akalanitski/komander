@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 /**
  * Collection of all registered dependencies which used by Komander to resolve
- * @Injected metatag. Dependency collection store two kind of dependencies:
+ * '@Injected' metatag. Dependency collection store two kind of dependencies:
  * <ul>
  *     <li>Config fields -- which could be injected by keys</li>
  *     <li>Object -- instances or creator. </li>

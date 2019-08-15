@@ -3,6 +3,9 @@ package com.kolonitsky.komander;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
+import java.net.URL;
+
 import static org.junit.Assert.*;
 
 /**
@@ -34,8 +37,13 @@ public class ConfiguratorTest {
 
 	@Test
 	public void readConfig() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		URL resourceUrl = classLoader.getResource("komander.properties");
+		File file = new File(resourceUrl.getFile());
+		System.out.println(file.getAbsolutePath());
+
 		Configurator c = new Configurator();
-		c.readConfig(TestConstants.propFile);
+		c.readConfig(file.getAbsolutePath());
 		Assert.assertTrue(c.has("project.id"));
 	}
 

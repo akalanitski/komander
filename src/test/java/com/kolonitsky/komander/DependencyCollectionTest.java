@@ -3,6 +3,8 @@ package com.kolonitsky.komander;
 import junit.framework.Assert;
 import org.junit.Test;
 
+import java.io.File;
+
 import static org.junit.Assert.*;
 
 /**
@@ -13,7 +15,11 @@ public class DependencyCollectionTest {
 	@Test
 	public void addConfigurator() throws Exception {
 		Configurator c = new Configurator();
-		c.readConfig(TestConstants.propFile);
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("komander.properties").getFile());
+		System.out.println(file.getAbsolutePath());
+
+		c.readConfig(file.getAbsolutePath());
 	}
 
 	@Test
@@ -28,8 +34,12 @@ public class DependencyCollectionTest {
 
 	@Test
 	public void getConfigProperty() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("komander.properties").getFile());
+		System.out.println(file.getAbsolutePath());
+
 		Configurator c = new Configurator();
-		c.readConfig(TestConstants.propFile);
+		c.readConfig(file.getAbsolutePath());
 		DependencyCollection col = new DependencyCollection();
 		col.addConfigurator(c);
 		assertTrue(col.getConfigProperty("project.id").equals("myProject"));

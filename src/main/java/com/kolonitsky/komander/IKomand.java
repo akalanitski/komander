@@ -10,7 +10,8 @@ public interface IKomand {
 
 	/**
 	 * Execute command
-	 * @param arguments
+	 * @param arguments arguments to run command
+	 * @throws Exception
 	 */
 	void run(String[] arguments) throws Exception;
 
